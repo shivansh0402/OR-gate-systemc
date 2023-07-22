@@ -6,6 +6,7 @@ SC_MODULE(example_stim)
 	sc_in<bool>clk;
 	sc_out<bool>a;
 	sc_out<bool>b;
+	sc_out<bool>c;
 	sc_in<bool>output;
 
 	void function()
@@ -14,15 +15,35 @@ SC_MODULE(example_stim)
 		{
 			a.write(false);
 			b.write(false);
+			c.write(false);
+			wait();
+			a.write(false);
+			b.write(false);
+			c.write(true);
+			wait();
+			a.write(false);
+			b.write(true);
+			c.write(false);
+			wait();
+			a.write(false);
+			b.write(true);
+			c.write(true);
 			wait();
 			a.write(true);
 			b.write(false);
-			wait();
-			a.write(true);
-			b.write(false);
+			c.write(false);
 			wait();
 			a.write(true);
 			b.write(true);
+			c.write(false);
+			wait();
+			a.write(true);
+			b.write(false);
+			c.write(true);
+			wait();
+			a.write(true);
+			b.write(true);
+			c.write(true);
 			wait();
 		}
 	}
@@ -30,7 +51,7 @@ SC_MODULE(example_stim)
 	{
 		while (true)
 		{
-			cout << " a :" << a.read() << " b :" << b.read() << "  output :" << output.read() << "  " << sc_time_stamp() << endl;
+			cout << " a :" << a.read() << " b :" << b.read()<<"c :"<<c.read() << "  output :" << output.read() << "  " << sc_time_stamp() << endl;
 			wait();
 		}
 	}
