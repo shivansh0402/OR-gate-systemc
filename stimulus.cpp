@@ -51,7 +51,7 @@ SC_MODULE(example_stim)
 	{
 		while (true)
 		{
-			cout << " a :" << a.read() << " b :" << b.read()<<"c :"<<c.read() << "  output :" << output.read() << "  " << sc_time_stamp() << endl;
+			cout << " a :" << a.read() << " b :" << b.read()<<" c :"<<c.read() << "  output :" << output.read() << "  " << sc_time_stamp() << endl;
 			wait();
 		}
 	}
